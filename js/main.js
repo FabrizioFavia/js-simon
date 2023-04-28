@@ -45,6 +45,7 @@ function disablePlay(off) {
     }
 }
 
+/* FUNZIONE PER CHIEDERE I NUMERI ALL'UTENTE E PER INSERIRLI NELL'ARRAY */
 function getUserNumber(arrayElements) {
     let userNumberArray = [];
     let i = 0; 
@@ -60,16 +61,38 @@ function getUserNumber(arrayElements) {
     return userNumberArray;
 
 }
-/* 
-function checkArray */
+
+/* FUNZIONE PER CONTROLLARE SE I NUMERI DELL'UTENTE 
+SONO UGUALI A QUELLI PRESENTI NELL'ARRAY DI NUMERI CASUALI */
+function checkArray(array1, array2){
+
+    let finalArray = [];
+
+    for (let i = 0; i < array1.length; i++) {
+        const randomNumber = array1[i];
+    
+        if (array2.includes(randomNumber)) {
+            finalArray.push(randomNumber);
+        }
+    }
+
+    return finalArray;
+}
+
+/* FUNZIONE PER INSERIRE ELEMENTI NEL DOM */
+function insertResult(finalArray){
+
+    
+    mainBox.innerHTML = 
+    `<div class= "resultContainer">
+        <p> Hai indovinato ${finalArray.length} numeri</p> 
+        <p> I numeri sono: ${finalArray.toString()}.</p>
+    </div>`
+}
 
 
+/********************************************** FUNZIONE PRINCIPALE *****************************************************************************/
 
-
-
-
-
-/* FUNZIONE PRINCIPALE */
 playBtn.addEventListener("click", function () {
 
     disablePlay(true);
@@ -81,7 +104,8 @@ playBtn.addEventListener("click", function () {
         disablePlay(false);
         setTimeout(() => {
             let userNumberArray = getUserNumber(randomArray);
-        }, 100);
-        
+            let finalArray = checkArray(randomArray, userNumberArray);
+            insertResult(finalArray)
+        }, 300);
     }, 5 * 1000);
-})
+});

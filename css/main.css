@@ -38,3 +38,12 @@ main{
 .disable{
     pointer-events: none;
 }
+
+.resultContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    font-size: 2em;
+}
