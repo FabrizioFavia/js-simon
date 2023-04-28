@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    height: 70px;
+}
+
+main{
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+}
+
+.numberContainer{
+    width: 800px;
+    height: 300px;
+    background-color: whitesmoke;  
+}
+
+.boxNumber{
+
+    width: calc(100% / 5);
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 50px;
+}
+
+.disable{
+    pointer-events: none;
+}
